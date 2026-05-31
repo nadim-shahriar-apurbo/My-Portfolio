@@ -1,0 +1,36 @@
+@layer components {
+  .monogram {
+    color: var(--textTitle);
+    transition: color var(--durationL) ease;
+  }
+
+  .housePart, .door {
+    fill: transparent;
+    transition: fill 0.3s var(--bezierFastoutSlowin);
+  }
+
+  @keyframes homeHover {
+    0% {
+      transform: translateY(0) scale(1);
+    }
+    50% {
+      transform: translateY(-4px) scale(1.1);
+    }
+    100% {
+      transform: translateY(0) scale(1.1);
+    }
+  }
+
+  :is(a:hover, .monogram:hover) {
+    color: var(--primary);
+    animation: homeHover 0.4s var(--bezierFastoutSlowin) forwards;
+  }
+
+  :is(a:hover, .monogram:hover) .housePart {
+    fill: currentColor;
+  }
+
+  :is(a:hover, .monogram:hover) .door {
+    fill: var(--background);
+  }
+}

@@ -1,0 +1,6 @@
+.achievements {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spaceOuter) 0;
+  min-height: 100vh;
+}

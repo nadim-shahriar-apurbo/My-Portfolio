@@ -1,0 +1,1 @@
+export { ConradChallenge as default, meta } from './conrad-challenge';

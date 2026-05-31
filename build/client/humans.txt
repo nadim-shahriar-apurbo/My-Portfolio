@@ -1,0 +1,38 @@
+\ \      \ \
+\ \ \    \ \
+\ \  \   \ \
+\ \   \  \ \
+\ \    \ \ \
+
+The humans.txt file explains the team, technology,
+and graphic assets behind this site humanstxt.org.
+
+_______________________________________________________________________________
+
+DESIGNER
+
+Nadim Shahriar
+Hand crafted design & web development
+
+Design tools:
+Figma
+Photoshop
+Blender
+
+twitter.com/hamishmw
+github.com/nadim-shahriar-apurbo
+
+_______________________________________________________________________________
+
+TECHNOLOGY
+
+React
+Remix
+Three.js
+Framer Motion
+
+_______________________________________________________________________________
+
+FONTS
+
+Gotham

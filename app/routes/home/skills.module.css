@@ -1,0 +1,247 @@
+.skills {
+  padding: var(--space7XL) 0 var(--spaceOuter) 0;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--maxWidthL);
+  display: flex;
+  flex-direction: column;
+  padding: 0 var(--spaceOuter);
+
+  @media (--mediaTablet) {
+    padding: 0 var(--space4XL);
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.tag {
+  position: relative;
+  display: inline-grid;
+  grid-template-columns: var(--space4XL) auto;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: var(--spaceL);
+}
+
+.tagText {
+  font-size: var(--fontSizeBodyS);
+  font-weight: var(--fontWeightMedium);
+  color: var(--primary);
+  opacity: 0;
+  transition: opacity var(--durationM) ease var(--durationL);
+
+  &[data-visible='true'] {
+    opacity: 1;
+  }
+}
+
+.sectionTitle {
+  opacity: 0;
+  transition: opacity var(--durationXL) ease var(--durationL);
+
+  &[data-visible='true'] {
+    opacity: 1;
+  }
+}
+
+.grid {
+  margin-top: var(--space3XL);
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Desktop default: 2 columns */
+  gap: 100px;
+
+  @media (--mediaTablet) {
+    grid-template-columns: 1fr; /* Tablet/Mobile: 1 column */
+    gap: var(--space4XL);
+  }
+}
+
+.techColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.profColumn {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto; /* Pushes the column a bit to the right */
+}
+
+.columnTitle {
+  margin-bottom: var(--spaceXL);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--durationL) ease, transform var(--durationL) var(--bezierFastoutSlowin);
+
+  &[data-visible='true'] {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.techSkillsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spaceL);
+  width: 100%;
+}
+
+.techItem {
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity var(--durationM) ease, transform var(--durationM) var(--bezierFastoutSlowin);
+
+  &[data-visible='true'] {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.techTitleGroup {
+  display: flex;
+  align-items: center;
+  gap: var(--spaceM);
+}
+
+.techIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  background: color-mix(in lab, var(--primary) 10%, transparent);
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+}
+
+:global([data-theme='light']) .techIcon {
+  color: var(--textTitle);
+  background: color-mix(in lab, var(--textTitle) 10%, transparent);
+}
+
+.barHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spaceM);
+}
+
+.percentBadge {
+  background: color-mix(in lab, var(--primary) 15%, transparent);
+  color: var(--primary);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: var(--fontWeightBold);
+}
+
+:global([data-theme='light']) .percentBadge {
+  background: color-mix(in lab, var(--textTitle) 15%, transparent);
+  color: var(--textTitle);
+}
+
+.techName {
+  color: var(--textTitle);
+  font-weight: var(--fontWeightMedium);
+}
+
+.techPercent {
+  color: var(--textBody);
+}
+
+.progressBar {
+  width: 100%;
+  height: 8px;
+  background: color-mix(in lab, var(--textTitle) 20%, transparent); /* Tracks theme automatically */
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progressFill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: var(--primary); /* Theme accent color */
+  border-radius: 4px;
+  transition: width 1.5s var(--bezierFastoutSlowin);
+  box-shadow: 0 0 10px color-mix(in lab, var(--primary) 40%, transparent);
+}
+
+:global([data-theme='light']) .progressFill {
+  background: var(--textTitle); /* Black in light mode */
+  box-shadow: none; /* Cleaner look for light mode */
+}
+
+/* Professional Skills */
+
+.circularGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space2XL);
+}
+
+.profItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity var(--durationM) ease, transform var(--durationM) var(--bezierFastoutSlowin);
+
+  &[data-visible='true'] {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.circleContainer {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  margin-bottom: var(--spaceS);
+}
+
+.circleTrack {
+  stroke-dasharray: 251.2;
+}
+
+.circleProgress {
+  transform: rotate(-90deg); /* Start from top */
+  transform-origin: 50% 50%;
+  transition: stroke-dashoffset 1.5s var(--bezierFastoutSlowin);
+  stroke: var(--primary);
+}
+
+:global([data-theme='light']) .circleProgress {
+  stroke: var(--textTitle);
+}
+
+.circleText {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--fontWeightMedium);
+  color: var(--textTitle);
+}
+
+.profName {
+  color: var(--textTitle);
+  text-align: center;
+}
