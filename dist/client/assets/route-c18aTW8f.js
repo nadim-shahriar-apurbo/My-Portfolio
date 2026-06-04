@@ -1,0 +1,1 @@
+import{r as s,j as e}from"./jsx-runtime-BfF-YriY.js";import{O as t}from"./index-B65Wts7y.js";const o="_achievements_ob0ma_1",a={achievements:o};function r(){return s.useEffect(()=>{window.scrollTo(0,0)},[]),e.jsx("div",{className:a.achievements,children:e.jsx(t,{})})}export{r as default};

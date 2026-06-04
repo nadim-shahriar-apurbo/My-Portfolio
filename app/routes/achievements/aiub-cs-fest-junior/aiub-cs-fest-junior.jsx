@@ -3,7 +3,6 @@ import { Button } from '~/components/button';
 import { Divider } from '~/components/divider';
 import { baseMeta } from '~/utils/meta';
 import { media } from '~/utils/style';
-import { Link } from '~/components/link';
 import {
   ProjectBackground,
   ProjectContainer,
@@ -124,7 +123,7 @@ export default function AiubCsFestJunior() {
             >
               <ProjectSectionHeading>Project Overview</ProjectSectionHeading>
               <ProjectSectionText>
-                Presented <Link href="/projects/saliva-robot">BioLimb</Link> at the AIUB CS Fest Project Showcase, competing in the Junior Category. BioLimb was developed as an innovative assistive technology project aimed at enhancing accessibility and improving quality of life through engineering and technology. The project combined research, hardware development, and software integration to create a practical solution with meaningful real-world impact, earning the title of <strong>Junior Runner-Up</strong>.
+                Presented <strong>BioLimb</strong> at the AIUB CS Fest Project Showcase, competing in the Junior Category. BioLimb was developed as an innovative assistive technology project aimed at enhancing accessibility and improving quality of life through engineering and technology. The project combined research, hardware development, and software integration to create a practical solution with meaningful real-world impact, earning the title of <strong>Junior Runner-Up</strong>.
               </ProjectSectionText>
             </motion.div>
           </ProjectTextRow>

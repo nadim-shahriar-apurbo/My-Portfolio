@@ -9,11 +9,10 @@ import {
   useNavigation,
   useRouteError,
 } from '@remix-run/react';
-import { createCookieSessionStorage, json } from '@remix-run/cloudflare';
 import { ThemeProvider, themeStyles } from '~/components/theme-provider';
 import GothamBook from '~/assets/fonts/gotham-book.woff2';
 import GothamMedium from '~/assets/fonts/gotham-medium.woff2';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Error } from '~/layouts/error';
 import { VisuallyHidden } from '~/components/visually-hidden';
 import { Navbar } from '~/layouts/navbar';
@@ -29,14 +28,14 @@ export const links = () => [
     href: GothamMedium,
     as: 'font',
     type: 'font/woff2',
-    crossOrigin: '',
+    crossOrigin: 'anonymous',
   },
   {
     rel: 'preload',
     href: GothamBook,
     as: 'font',
     type: 'font/woff2',
-    crossOrigin: '',
+    crossOrigin: 'anonymous',
   },
   { rel: 'manifest', href: '/manifest.json' },
   { rel: 'icon', href: '/favicon.ico' },
@@ -45,51 +44,42 @@ export const links = () => [
   { rel: 'author', href: '/humans.txt', type: 'text/plain' },
 ];
 
-export const loader = async ({ request, context }) => {
+export const clientLoader = async ({ request }) => {
   const { url } = request;
   const { pathname } = new URL(url);
-  const pathnameSliced = pathname.endsWith('/') ? pathname.slice(0, -1) : url;
+  const pathnameSliced = pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
   const canonicalUrl = `${config.url}${pathnameSliced}`;
 
-  const { getSession, commitSession } = createCookieSessionStorage({
-    cookie: {
-      name: '__session',
-      httpOnly: true,
-      maxAge: 604_800,
-      path: '/',
-      sameSite: 'lax',
-      secrets: [context.cloudflare.env.SESSION_SECRET || ' '],
-      secure: true,
-    },
-  });
-
-  const session = await getSession(request.headers.get('Cookie'));
-  const theme = session.get('theme') || 'dark';
-
-  return json(
-    { canonicalUrl, theme },
-    {
-      headers: {
-        'Set-Cookie': await commitSession(session),
-      },
-    }
-  );
-};
-
-export default function App() {
-  let { canonicalUrl, theme } = useLoaderData();
-  const fetcher = useFetcher();
-  const { state } = useNavigation();
-
-  if (fetcher.formData?.has('theme')) {
-    theme = fetcher.formData.get('theme');
+  let theme = 'dark';
+  if (typeof window !== 'undefined') {
+    theme = window.localStorage.getItem('theme') || 'dark';
   }
 
+  return { canonicalUrl, theme };
+};
+clientLoader.hydrate = true;
+
+export default function App() {
+  const { canonicalUrl, theme: initialTheme } = useLoaderData();
+  const [theme, setTheme] = useState(initialTheme);
+  const { state } = useNavigation();
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const storedTheme = window.localStorage.getItem('theme');
+      if (storedTheme && storedTheme !== theme) {
+        setTheme(storedTheme);
+      }
+    }
+  }, []);
+
   function toggleTheme(newTheme) {
-    fetcher.submit(
-      { theme: newTheme ? newTheme : theme === 'dark' ? 'light' : 'dark' },
-      { action: '/api/set-theme', method: 'post' }
-    );
+    const nextTheme = newTheme ? newTheme : theme === 'dark' ? 'light' : 'dark';
+    setTheme(nextTheme);
+    if (typeof window !== 'undefined') {
+      window.localStorage.setItem('theme', nextTheme);
+      document.documentElement.dataset.theme = nextTheme;
+    }
   }
 
   useEffect(() => {

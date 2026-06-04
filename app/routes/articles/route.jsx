@@ -1,4 +1,3 @@
-import { json } from '@remix-run/cloudflare';
 import { Outlet, useLoaderData } from '@remix-run/react';
 import { MDXProvider } from '@mdx-js/react';
 import { Post, postMarkdown } from '~/layouts/post';
@@ -6,18 +5,29 @@ import { baseMeta } from '~/utils/meta';
 import config from '~/config.json';
 import { formatTimecode, readingTime } from '~/utils/timecode';
 
-export async function loader({ request }) {
+const modules = import.meta.glob('../articles.*.mdx', { eager: true });
+const rawModules = import.meta.glob('../articles.*.mdx', { eager: true, query: '?raw' });
+
+export async function clientLoader({ request }) {
   const slug = request.url.split('/').at(-1);
-  const module = await import(`../articles.${slug}.mdx`);
-  const text = await import(`../articles.${slug}.mdx?raw`);
-  const readTime = readingTime(text.default);
+  const module = modules[`../articles.${slug}.mdx`];
+  
+  if (!module) {
+    throw new Response('Not Found', { status: 404 });
+  }
+
+  const rawModuleKey = `../articles.${slug}.mdx`;
+  const text = rawModules[rawModuleKey] || rawModules[`${rawModuleKey}?raw`];
+  const textContent = typeof text === 'string' ? text : text?.default || '';
+
+  const readTime = readingTime(textContent);
   const ogImage = `${config.url}/static/${slug}-og.jpg`;
 
-  return json({
+  return {
     ogImage,
     frontmatter: module.frontmatter,
     timecode: formatTimecode(readTime),
-  });
+  };
 }
 
 export function meta({ data }) {

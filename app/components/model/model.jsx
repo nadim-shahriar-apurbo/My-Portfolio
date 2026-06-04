@@ -54,6 +54,8 @@ const rotationSpringConfig = {
   restSpeed: 0.001,
 };
 
+const viewportOptions = { threshold: 0.2 };
+
 export const Model = ({
   models,
   show = true,
@@ -83,7 +85,7 @@ export const Model = ({
   const lights = useRef();
   const blurPlane = useRef();
   const fillPlane = useRef();
-  const isInViewport = useInViewport(container, false, { threshold: 0.2 });
+  const isInViewport = useInViewport(container, false, viewportOptions);
   const reduceMotion = useReducedMotion();
   const rotationX = useSpring(0, rotationSpringConfig);
   const rotationY = useSpring(0, rotationSpringConfig);

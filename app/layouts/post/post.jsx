@@ -7,7 +7,7 @@ import { Text } from '~/components/text';
 import { tokens } from '~/components/theme-provider/theme';
 import { Transition } from '~/components/transition';
 import { useParallax, useScrollToHash } from '~/hooks';
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, useCallback } from 'react';
 import { clamp } from '~/utils/clamp';
 import { formatDate } from '~/utils/date';
 import { cssProps, msToNum, numToMs } from '~/utils/style';
@@ -23,10 +23,12 @@ export const Post = ({ children, title, date, banner, timecode }) => {
     setDateTime(formatDate(date));
   }, [date, dateTime]);
 
-  useParallax(0.004, value => {
+  const handleParallaxChange = useCallback(value => {
     if (!imageRef.current) return;
     imageRef.current.style.setProperty('--blurOpacity', clamp(value, 0, 1));
-  });
+  }, []);
+
+  useParallax(0.004, handleParallaxChange);
 
   const handleScrollIndicatorClick = event => {
     event.preventDefault();

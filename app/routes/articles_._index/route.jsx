@@ -1,13 +1,12 @@
 import { baseMeta } from '~/utils/meta';
-import { getPosts } from './posts.server';
-import { json } from '@remix-run/cloudflare';
+import { getPosts } from './posts';
 
-export async function loader() {
+export const clientLoader = async () => {
   const allPosts = await getPosts();
   const featured = allPosts.filter(post => post.frontmatter.featured)[0];
   const posts = allPosts.filter(post => featured?.slug !== post.slug);
 
-  return json({ posts, featured });
+  return { posts, featured };
 }
 
 export function meta() {

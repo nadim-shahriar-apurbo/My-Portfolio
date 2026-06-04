@@ -6,7 +6,7 @@ import { Text } from '~/components/text';
 import { tokens } from '~/components/theme-provider/theme';
 import { Transition } from '~/components/transition';
 import { useParallax } from '~/hooks';
-import { forwardRef, useRef } from 'react';
+import { forwardRef, useRef, useCallback } from 'react';
 import { useInView } from 'framer-motion';
 import { DecoderText } from '~/components/decoder-text';
 import { classes, cssProps, msToNum, numToMs } from '~/utils/style';
@@ -108,10 +108,12 @@ export const ProjectSection = forwardRef(
 export const ProjectBackground = ({ opacity = 0.7, className, ...rest }) => {
   const imageRef = useRef();
 
-  useParallax(0.6, value => {
+  const handleParallaxChange = useCallback(value => {
     if (!imageRef.current) return;
     imageRef.current.style.setProperty('--offset', `${value}px`);
-  });
+  }, []);
+
+  useParallax(0.6, handleParallaxChange);
 
   return (
     <Transition in timeout={msToNum(tokens.base.durationM)}>

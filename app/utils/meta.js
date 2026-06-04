@@ -22,7 +22,6 @@ export function baseMeta({
     { property: 'og:title', content: titleText },
     { property: 'og:site_name', content: name },
     { property: 'og:type', content: 'website' },
-    { property: 'og:url', content: url },
     { property: 'og:description', content: description },
     { property: 'twitter:card', content: 'summary_large_image' },
     { property: 'twitter:description', content: description },

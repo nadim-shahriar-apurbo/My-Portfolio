@@ -1,38 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://hamishw.com/</loc>
+    <loc>https://nshahriar.arionys.com/</loc>
     <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://hamishw.com/contact/</loc>
+    <loc>https://nshahriar.arionys.com/contact/</loc>
     <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hamishw.com/articles/</loc>
+    <loc>https://nshahriar.arionys.com/projects/roadlink/</loc>
     <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hamishw.com/uses/</loc>
+    <loc>https://nshahriar.arionys.com/projects/saliva-robot/</loc>
     <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hamishw.com/projects/slice/</loc>
+    <loc>https://nshahriar.arionys.com/projects/wheelchair/</loc>
     <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hamishw.com/projects/smart-sparrow/</loc>
+    <loc>https://nshahriar.arionys.com/achievements/conrad-challenge/</loc>
     <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hamishw.com/projects/volkihar-knight/</loc>
+    <loc>https://nshahriar.arionys.com/achievements/robotech-olympiad/</loc>
     <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hamishw.com/articles/hello-world</loc>
+    <loc>https://nshahriar.arionys.com/achievements/aiub-cs-fest/</loc>
     <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hamishw.com/articles/modern-styling-in-react</loc>
+    <loc>https://nshahriar.arionys.com/achievements/aiub-cs-fest-junior/</loc>
     <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nshahriar.arionys.com/achievements/robo-soccer/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nshahriar.arionys.com/achievements/isif-2024/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nshahriar.arionys.com/achievements/robotronics-fest-2025/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nshahriar.arionys.com/achievements/khude-biggyani-2022/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>

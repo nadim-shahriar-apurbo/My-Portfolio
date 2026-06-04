@@ -15,7 +15,7 @@ import config from '~/config.json';
 import styles from './home.module.css';
 import { projectsData } from '~/data/projects';
 
-// Prefetch draco decoader wasm
+// Prefetch draco decoder wasm
 export const links = () => {
   return [
     {
@@ -37,8 +37,8 @@ export const links = () => {
 
 export const meta = () => {
   return baseMeta({
-    title: 'Designer + Developer',
-    description: `Design portfolio of ${config.name} — a product designer working on web & mobile apps with a focus on motion, experience design, and accessibility.`,
+    title: 'Tech Enthusiast',
+    description: `Portfolio of ${config.name} — a tech enthusiast and developer specializing in web development, robotics, AI, and UAV technology.`,
   });
 };
 

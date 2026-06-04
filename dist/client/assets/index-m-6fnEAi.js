@@ -1,0 +1,69 @@
+import{r as o,j as K}from"./jsx-runtime-BfF-YriY.js";import{u as Ue,r as be}from"./image-BvN92nUy.js";import{W as Re,e as fe,P as Te,S as Ee,G as J,A as Ce,D as $,f as Q,g as Le,h as q,b as X,O as Pe,i as ke,j as ee,r as Ve,c as ze,d as Ge,t as Fe,k as te,m as _e,C as re,l as I,n as je}from"./throttle-DVKQUx8I.js";import{f as Be,g as He,u as me,c as Ie,a as We,n as Ne}from"./heading-BHGbyw7i.js";import{M as ne}from"./projects-Cx4DFaaX.js";import{s as Oe,c as Ke,m as Xe,a as Ye,b as Ze,d as Je,r as $e,e as ve,p as Qe,f as qe,g as et,h as tt,u as se}from"./decoder-text-CGBBZvzf.js";import{r as pe}from"./resolve-element-D3OgaU9t.js";import{m as rt,i as nt,S as st,H as at,v as Z,a as de,b as it}from"./SVGVisualElement-CSfKrGBH.js";import"./components-VFsNTU6q.js";import"./index-B65Wts7y.js";import"./divider-Ce-imOJH.js";import"./section-CpwQF4da.js";import"./theme-provider-ClUV7XPj.js";import"./useWindowSize-CCgmKmhO.js";import"./biolimb-Ar4ClB4x.js";import"./wheelchairmain-BBO-QXY2.js";import"./roadlinkmain-MH_IW6CD.js";function ot(t,e){let n;const r=()=>{const{currentTime:i}=e,p=(i===null?0:i.value)/100;n!==p&&t(p),n=p};return Be.update(r,!0),()=>He(r)}const ct=rt(()=>window.ScrollTimeline!==void 0);class he{constructor(e){this.animations=e.filter(Boolean)}then(e,n){return Promise.all(this.animations).then(e).catch(n)}getAll(e){return this.animations[0][e]}setAll(e,n){for(let r=0;r<this.animations.length;r++)this.animations[r][e]=n}attachTimeline(e){const n=this.animations.map(r=>{if(ct()&&r.attachTimeline)r.attachTimeline(e);else return r.pause(),ot(i=>{r.time=r.duration*i},e)});return()=>{n.forEach((r,i)=>{r&&r(),this.animations[i].stop()})}}get time(){return this.getAll("time")}set time(e){this.setAll("time",e)}get speed(){return this.getAll("speed")}set speed(e){this.setAll("speed",e)}get duration(){let e=0;for(let n=0;n<this.animations.length;n++)e=Math.max(e,this.animations[n].duration);return e}runAll(e){this.animations.forEach(n=>n[e]())}play(){this.runAll("play")}pause(){this.runAll("pause")}stop(){this.runAll("stop")}cancel(){this.runAll("cancel")}complete(){this.runAll("complete")}}function ut(t){return typeof t=="object"&&!Array.isArray(t)}function lt(t){const e={presenceContext:null,props:{},visualState:{renderState:{transform:{},transformOrigin:{},style:{},vars:{},attrs:{}},latestValues:{}}},n=nt(t)?new st(e,{enableHardwareAcceleration:!1}):new at(e,{enableHardwareAcceleration:!0});n.mount(t),Z.set(t,n)}function ft(t,e=100){const n=Oe({keyframes:[0,e],...t}),r=Math.min(Ke(n),Xe);return{type:"keyframes",ease:i=>n.next(r*i).value/e,duration:Ye(r)}}function ae(t,e,n,r){var i;return typeof e=="number"?e:e.startsWith("-")||e.startsWith("+")?Math.max(0,t+parseFloat(e)):e==="<"?n:(i=r.get(e))!==null&&i!==void 0?i:t}const mt=(t,e,n)=>{const r=e-t;return((n-t)%r+r)%r+t};function vt(t,e){return Ze(t)?t[mt(0,t.length,e)]:t}function pt(t,e,n){for(let r=0;r<t.length;r++){const i=t[r];i.at>e&&i.at<n&&($e(t,i),r--)}}function dt(t,e,n,r,i,c){pt(t,i,c);for(let p=0;p<e.length;p++)t.push({value:e[p],at:Je(i,c,r[p]),easing:vt(n,p)})}function ht(t,e){return t.at===e.at?t.value===null?1:e.value===null?-1:0:t.at-e.at}const gt="easeInOut";function yt(t,{defaultTransition:e={},...n}={},r){const i=e.duration||.3,c=new Map,p=new Map,M={},x=new Map;let E=0,A=0,T=0;for(let w=0;w<t.length;w++){const u=t[w];if(typeof u=="string"){x.set(u,A);continue}else if(!Array.isArray(u)){x.set(u.name,ae(A,u.at,E,x));continue}let[U,a,s={}]=u;s.at!==void 0&&(A=ae(A,s.at,E,x));let d=0;const D=(h,y,l,S=0,f=0)=>{const m=xt(h),{delay:C=0,times:v=qe(m),type:G="keyframes",...H}=y;let{ease:j=e.ease||"easeOut",duration:b}=y;const P=typeof C=="function"?C(S,f):C,F=m.length;if(F<=2&&G==="spring"){let L=100;if(F===2&&St(m)){const _=m[1]-m[0];L=Math.abs(_)}const V={...H};b!==void 0&&(V.duration=tt(b));const z=ft(V,L);j=z.ease,b=z.duration}b??(b=i);const k=A+P,g=k+b;v.length===1&&v[0]===0&&(v[1]=1);const R=v.length-m.length;R>0&&et(v,R),m.length===1&&m.unshift(null),dt(l,m,j,v,k,g),d=Math.max(P+b,d),T=Math.max(g,T)};if(ve(U)){const h=ie(U,p);D(a,s,oe("default",h))}else{const h=pe(U,r,M),y=h.length;for(let l=0;l<y;l++){a=a,s=s;const S=h[l],f=ie(S,p);for(const m in a)D(a[m],wt(s,m),oe(m,f),l,y)}}E=A,A+=d}return p.forEach((w,u)=>{for(const U in w){const a=w[U];a.sort(ht);const s=[],d=[],D=[];for(let y=0;y<a.length;y++){const{at:l,value:S,easing:f}=a[y];s.push(S),d.push(Qe(0,T,l)),D.push(f||"easeOut")}d[0]!==0&&(d.unshift(0),s.unshift(s[0]),D.unshift(gt)),d[d.length-1]!==1&&(d.push(1),s.push(null)),c.has(u)||c.set(u,{keyframes:{},transition:{}});const h=c.get(u);h.keyframes[U]=s,h.transition[U]={...e,duration:T,ease:D,times:d,...n}}}),c}function ie(t,e){return!e.has(t)&&e.set(t,{}),e.get(t)}function oe(t,e){return e[t]||(e[t]=[]),e[t]}function xt(t){return Array.isArray(t)?t:[t]}function wt(t,e){return t[e]?{...t,...t[e]}:{...t}}const Dt=t=>typeof t=="number",St=t=>t.every(Dt);function ge(t,e,n,r){const i=pe(t,r),c=i.length,p=[];for(let M=0;M<c;M++){const x=i[M];Z.has(x)||lt(x);const E=Z.get(x),A={...n};typeof A.delay=="function"&&(A.delay=A.delay(M,c)),p.push(...it(E,{...e,transition:A},{}))}return new he(p)}const Mt=t=>Array.isArray(t)&&Array.isArray(t[0]);function At(t,e,n){const r=[];return yt(t,e,n).forEach(({keyframes:c,transition:p},M)=>{let x;ve(M)?x=de(M,c.default,p.default):x=ge(M,c,p),r.push(x)}),new he(r)}const Ut=t=>{function e(n,r,i){let c;return Mt(n)?c=At(n,r,t):ut(r)?c=ge(n,r,i,t):c=de(n,r,i),t&&t.animations.push(c),c}return e},Y=Ut(),bt={uniforms:{tDiffuse:{value:null},h:{value:1/512}},vertexShader:`
+      varying vec2 vUv;
+
+      void main() {
+
+        vUv = uv;
+        gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+
+      }
+  `,fragmentShader:`
+    uniform sampler2D tDiffuse;
+    uniform float h;
+
+    varying vec2 vUv;
+
+    void main() {
+
+    	vec4 sum = vec4( 0.0 );
+
+    	sum += texture2D( tDiffuse, vec2( vUv.x - 4.0 * h, vUv.y ) ) * 0.051;
+    	sum += texture2D( tDiffuse, vec2( vUv.x - 3.0 * h, vUv.y ) ) * 0.0918;
+    	sum += texture2D( tDiffuse, vec2( vUv.x - 2.0 * h, vUv.y ) ) * 0.12245;
+    	sum += texture2D( tDiffuse, vec2( vUv.x - 1.0 * h, vUv.y ) ) * 0.1531;
+    	sum += texture2D( tDiffuse, vec2( vUv.x, vUv.y ) ) * 0.1633;
+    	sum += texture2D( tDiffuse, vec2( vUv.x + 1.0 * h, vUv.y ) ) * 0.1531;
+    	sum += texture2D( tDiffuse, vec2( vUv.x + 2.0 * h, vUv.y ) ) * 0.12245;
+    	sum += texture2D( tDiffuse, vec2( vUv.x + 3.0 * h, vUv.y ) ) * 0.0918;
+    	sum += texture2D( tDiffuse, vec2( vUv.x + 4.0 * h, vUv.y ) ) * 0.051;
+
+    	gl_FragColor = sum;
+
+    }
+  `},Rt={uniforms:{tDiffuse:{value:null},v:{value:1/512}},vertexShader:`
+    varying vec2 vUv;
+
+    void main() {
+
+      vUv = uv;
+      gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+
+    }
+  `,fragmentShader:`
+
+  uniform sampler2D tDiffuse;
+  uniform float v;
+
+  varying vec2 vUv;
+
+  void main() {
+
+    vec4 sum = vec4( 0.0 );
+
+    sum += texture2D( tDiffuse, vec2( vUv.x, vUv.y - 4.0 * v ) ) * 0.051;
+    sum += texture2D( tDiffuse, vec2( vUv.x, vUv.y - 3.0 * v ) ) * 0.0918;
+    sum += texture2D( tDiffuse, vec2( vUv.x, vUv.y - 2.0 * v ) ) * 0.12245;
+    sum += texture2D( tDiffuse, vec2( vUv.x, vUv.y - 1.0 * v ) ) * 0.1531;
+    sum += texture2D( tDiffuse, vec2( vUv.x, vUv.y ) ) * 0.1633;
+    sum += texture2D( tDiffuse, vec2( vUv.x, vUv.y + 1.0 * v ) ) * 0.1531;
+    sum += texture2D( tDiffuse, vec2( vUv.x, vUv.y + 2.0 * v ) ) * 0.12245;
+    sum += texture2D( tDiffuse, vec2( vUv.x, vUv.y + 3.0 * v ) ) * 0.0918;
+    sum += texture2D( tDiffuse, vec2( vUv.x, vUv.y + 4.0 * v ) ) * 0.051;
+
+    gl_FragColor = sum;
+
+  }
+  `},Tt="_model_fphsv_2",Et="_canvas_fphsv_11",ce={model:Tt,canvas:Et},ue={Frame:"Frame",Logo:"Logo",Screen:"Screen"},le={stiffness:40,damping:20,mass:1.4,restSpeed:.001},Ct={threshold:.2},Zt=({models:t,show:e=!0,showDelay:n=0,cameraPosition:r={x:0,y:0,z:8},style:i,className:c,onLoad:p,alt:M,...x})=>{const[E,A]=o.useState(!1),T=o.useRef(),w=o.useRef(),u=o.useRef(),U=o.useRef(),a=o.useRef(),s=o.useRef(),d=o.useRef(),D=o.useRef(),h=o.useRef(),y=o.useRef(),l=o.useRef(),S=o.useRef(),f=o.useRef(),m=o.useRef(),C=o.useRef(),v=o.useRef(),G=o.useRef(),H=Ue(T,!1,Ct),j=me(),b=se(0,le),P=se(0,le);o.useEffect(()=>{const{clientWidth:g,clientHeight:R}=T.current;s.current=new Re({canvas:w.current,alpha:!0,antialias:!1,powerPreference:"high-performance",failIfMajorPerformanceCaveat:!0}),s.current.setPixelRatio(2),s.current.setSize(g,R),s.current.outputColorSpace=fe,u.current=new Te(36,g/R,.1,100),u.current.position.set(r.x,r.y,r.z),a.current=new Ee,U.current=new J,a.current.add(U.current);const L=new Ce(16777215,1.2),V=new $(16777215,1.1),z=new $(16777215,.8);z.position.set(-6,2,2),V.position.set(.5,0,.866),C.current=[L,V,z],C.current.forEach(B=>a.current.add(B)),d.current=new J,a.current.add(d.current),d.current.position.set(0,0,-.8),d.current.rotateX(Math.PI/2);const _=512,W=8,N=8,ye=1.5,xe=.8,we=3;D.current=new Q(_,_),D.current.texture.generateMipmaps=!1,h.current=new Q(_,_),h.current.texture.generateMipmaps=!1;const O=new Le(W,N).rotateX(Math.PI/2),De=new q({map:D.current.texture,opacity:xe,transparent:!0});m.current=new X(O,De),m.current.scale.y=-1,d.current.add(m.current),v.current=new X(O),v.current.visible=!1,d.current.add(v.current);const Se=new q({color:16777215,opacity:0,transparent:!0});G.current=new X(O,Se),G.current.rotateX(Math.PI),G.current.position.y-=1e-5,d.current.add(G.current),y.current=new Pe(-W/2,W/2,N/2,-N/2,0,ye),y.current.rotation.x=Math.PI/2,d.current.add(y.current),l.current=new ke,l.current.userData.darkness={value:we},l.current.onBeforeCompile=B=>{B.uniforms.darkness=l.current.userData.darkness,B.fragmentShader=`
+        uniform float darkness;
+        ${B.fragmentShader.replace("gl_FragColor = vec4( vec3( 1.0 - fragCoordZ ), opacity );","gl_FragColor = vec4( vec3( 0.0 ), ( 1.0 - fragCoordZ ) * darkness );")}
+      `},l.current.depthTest=!1,l.current.depthWrite=!1,S.current=new ee(bt),S.current.depthTest=!1,f.current=new ee(Rt),f.current.depthTest=!1;const Me=b.on("change",k),Ae=P.on("change",k);return()=>{D.current.dispose(),h.current.dispose(),Ve(C.current),ze(a.current),Ge(s.current),Me(),Ae()}},[]);const F=o.useCallback(g=>{v.current.visible=!0,v.current.material=S.current,v.current.material.uniforms.tDiffuse.value=D.current.texture,S.current.uniforms.h.value=g*(1/256),s.current.setRenderTarget(h.current),s.current.render(v.current,y.current),v.current.material=f.current,v.current.material.uniforms.tDiffuse.value=h.current.texture,f.current.uniforms.v.value=g*(1/256),s.current.setRenderTarget(D.current),s.current.render(v.current,y.current),v.current.visible=!1},[]),k=o.useCallback(()=>{const R=a.current.background;a.current.background=null,a.current.overrideMaterial=l.current,s.current.setRenderTarget(D.current),s.current.render(a.current,y.current),a.current.overrideMaterial=null,F(5),F(5*.4),s.current.setRenderTarget(null),a.current.background=R,U.current.rotation.x=b.get(),U.current.rotation.y=P.get(),s.current.render(a.current,u.current)},[F,b,P]);return o.useEffect(()=>{const g=Fe(R=>{const{innerWidth:L,innerHeight:V}=window,z={x:(R.clientX-L/2)/L,y:(R.clientY-V/2)/V};P.set(z.x/2),b.set(z.y/2)},100);return H&&!j&&window.addEventListener("mousemove",g),()=>{window.removeEventListener("mousemove",g)}},[H,j,b,P]),o.useEffect(()=>{const g=()=>{if(!T.current)return;const{clientWidth:R,clientHeight:L}=T.current;s.current.setSize(R,L),u.current.aspect=R/L,u.current.updateProjectionMatrix(),k()};return window.addEventListener("resize",g),g(),()=>{window.removeEventListener("resize",g)}},[k]),K.jsxs("div",{className:Ie(ce.model,c),"data-loaded":E,style:We({delay:Ne(n)},i),ref:T,role:"img","aria-label":M,...x,children:[K.jsx("canvas",{className:ce.canvas,ref:w}),t.map((g,R)=>K.jsx(Lt,{renderer:s,modelGroup:U,show:e,showDelay:n,renderFrame:k,index:R,setLoaded:A,onLoad:p,model:g},JSON.stringify(g.position)))]})},Lt=({renderer:t,model:e,modelGroup:n,renderFrame:r,index:i,showDelay:c,setLoaded:p,onLoad:M,show:x})=>{const[E,A]=o.useState(),T=me(),w=o.createRef();o.useEffect(()=>{const u=async(a,s)=>{a.colorSpace=fe,a.flipY=!1,a.anisotropy=t.current.capabilities.getMaxAnisotropy(),a.generateMipmaps=!1,await t.current.initTexture(a),s.material.color=new re(16777215),s.material.transparent=!0,s.material.map=a};A({start:async()=>{const{texture:a,position:s,url:d}=e;let D,h;const[y,l]=await Promise.all([await te.loadAsync(a.placeholder),await _e.loadAsync(d)]);n.current.add(l.scene),l.scene.traverse(async f=>{f.material&&(f.material.color=new re(2039845)),f.name===ue.Screen&&(w.current=f.clone(),w.current.material=f.material.clone(),f.parent.add(w.current),w.current.material.opacity=1,w.current.position.z+=.001,u(y,w.current),D=async()=>{const m=await be(a),C=await te.loadAsync(m);await u(C,f),Y(1,0,{onUpdate:v=>{w.current.material.opacity=v,r()}})})});const S=new I(s.x,s.y,s.z);return T&&l.scene.position.set(...S.toArray()),e.animation===ne.SpringUp&&(h=()=>{const f=new I(S.x,S.y-1,S.z);l.scene.position.set(...f.toArray()),Y(f.y,S.y,{type:"spring",delay:(300*i+c)/1e3,stiffness:60,damping:20,mass:1,restSpeed:1e-4,restDelta:1e-4,onUpdate:m=>{l.scene.position.y=m,r()}})}),e.animation===ne.LaptopOpen&&(h=()=>{const f=l.scene.children.find(v=>v.name===ue.Frame),m=new I(je.degToRad(90),0,0),C=new I(0,0,0);return l.scene.position.set(...S.toArray()),f.rotation.set(...m.toArray()),Y(m.x,C.x,{type:"spring",delay:(300*i+c+300)/1e3,stiffness:80,damping:20,restSpeed:1e-4,restDelta:1e-4,onUpdate:v=>{f.rotation.x=v,r()}})}),{loadFullResTexture:D,playAnimation:h}}})},[]),o.useEffect(()=>{if(!E||!x)return;let u;const U=async()=>{const{loadFullResTexture:a,playAnimation:s}=await E.start();p(!0),M==null||M(),T||(u=s()),await a(),T&&r()};return o.startTransition(()=>{U()}),()=>{u==null||u.stop()}},[E,x])};export{Zt as Model};

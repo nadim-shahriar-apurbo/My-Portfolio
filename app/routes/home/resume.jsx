@@ -124,7 +124,7 @@ export const Resume = ({ id, visible, sectionRef }) => {
                     subtitle="Founder (Jan 2023 - Present)"
                     description="Team RoboSuperior is a robotics team that is dedicated to creating socially intelligent machines that enrich the quality of our lives and educationally enriching the students."
                     visible={visible}
-                    index={4}
+                    index={5}
                   />
                   {/* <TimelineItem
                     title="Offcoded"
@@ -138,7 +138,7 @@ export const Resume = ({ id, visible, sectionRef }) => {
                     subtitle="Founder (June 2023 - June 2024)"
                     description="Team Exo Max competed in the NASA Conrad Challenge, creating accident prevention technology to improve safety and sustainability. Their innovation inspired future explorers."
                     visible={visible}
-                    index={6}
+                    index={5}
                   />
                 </div>
               </div>

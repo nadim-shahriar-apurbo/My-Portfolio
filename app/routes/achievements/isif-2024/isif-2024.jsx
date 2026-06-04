@@ -3,7 +3,6 @@ import { Button } from '~/components/button';
 import { Divider } from '~/components/divider';
 import { baseMeta } from '~/utils/meta';
 import { media } from '~/utils/style';
-import { Link } from '~/components/link';
 import {
   ProjectBackground,
   ProjectContainer,
@@ -124,7 +123,7 @@ export default function Isif2024() {
             >
               <ProjectSectionHeading>Project Overview</ProjectSectionHeading>
               <ProjectSectionText>
-                Presented <Link href="/projects/saliva-robot">BioLimb</Link> at the International Skill Innovation Fest (ISIF) 2024, hosted by the Islamic University of Technology (IUT). BioLimb is an innovative assistive technology project designed to improve accessibility and enhance the quality of life for individuals requiring advanced mobility and support solutions. The project combined research, engineering, hardware integration, and software development to create a practical and impactful solution, earning the <strong>Runner-Up</strong> position.
+                Presented <strong>BioLimb</strong> at the International Skill Innovation Fest (ISIF) 2024, hosted by the Islamic University of Technology (IUT). BioLimb is an innovative assistive technology project designed to improve accessibility and enhance the quality of life for individuals requiring advanced mobility and support solutions. The project combined research, engineering, hardware integration, and software development to create a practical and impactful solution, earning the <strong>Runner-Up</strong> position.
               </ProjectSectionText>
             </motion.div>
           </ProjectTextRow>

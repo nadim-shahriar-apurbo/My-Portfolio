@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 export function useWindowSize() {
-  const dimensions = useRef(() => ({ w: 1280, h: 800 }));
+  const dimensions = useRef({ w: 1280, h: 800 });
 
   const createRuler = useCallback(() => {
     let ruler = document.createElement('div');
