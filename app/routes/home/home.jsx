@@ -20,14 +20,14 @@ export const links = () => {
   return [
     {
       rel: 'prefetch',
-      href: '/draco/draco_wasm_wrapper.js',
+      href: `${import.meta.env.BASE_URL}draco/draco_wasm_wrapper.js`,
       as: 'script',
       type: 'text/javascript',
       importance: 'low',
     },
     {
       rel: 'prefetch',
-      href: '/draco/draco_decoder.wasm',
+      href: `${import.meta.env.BASE_URL}draco/draco_decoder.wasm`,
       as: 'fetch',
       type: 'application/wasm',
       importance: 'low',
