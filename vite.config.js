@@ -24,6 +24,7 @@ export default defineConfig({
     }),
     remix({
       ssr: false,
+      basename: '/My-Portfolio/',
       routes(defineRoutes) {
         return defineRoutes(route => {
           route('/', 'routes/home/route.js', { index: true });
