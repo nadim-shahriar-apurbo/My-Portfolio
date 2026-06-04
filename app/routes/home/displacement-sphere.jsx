@@ -190,6 +190,7 @@ export const DisplacementSphere = props => {
           className={styles.canvas}
           data-visible={visible}
           ref={nodeRef}
+          style={{ position: 'absolute', inset: 0, width: '100vw' }}
           {...props}
         />
       )}

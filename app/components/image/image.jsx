@@ -188,7 +188,7 @@ const ImageElements = ({
           {...rest}
         />
       )}
-      {showPlaceholder && (
+      {showPlaceholder && placeholder && (
         <img
           aria-hidden
           className={styles.placeholder}

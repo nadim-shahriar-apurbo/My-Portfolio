@@ -6,7 +6,7 @@ export async function getPosts() {
 
   const posts = await Promise.all(
     Object.entries(modules).map(async ([file, post]) => {
-      let slug = file.replace('../articles.', '/articles/').replace(/\.mdx$/, '');
+      let slug = file.replace('../articles.', '').replace(/\.mdx$/, '');
 
       const text = rawModules[file] || rawModules[`${file}?raw`];
       const textContent = typeof text === 'string' ? text : text?.default || '';

@@ -9,7 +9,7 @@ import rehypeSlug from 'rehype-slug';
 import rehypePrism from '@mapbox/rehype-prism';
 
 export default defineConfig({
-  base: '/My-Portfolio/',
+  base: '/',
   assetsInclude: ['**/*.glb', '**/*.hdr', '**/*.glsl', '**/*.JPG'],
   build: {
     assetsInlineLimit: 1024,
@@ -25,7 +25,7 @@ export default defineConfig({
     }),
     remix({
       ssr: false,
-      basename: '/My-Portfolio/',
+      basename: '/',
       routes(defineRoutes) {
         return defineRoutes(route => {
           route('/', 'routes/home/route.js', { index: true });
@@ -43,3 +43,4 @@ export default defineConfig({
     jsconfigPaths(),
   ],
 });
+
